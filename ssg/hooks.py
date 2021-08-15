@@ -1,8 +1,9 @@
 _callbacks = {}
 
 
-def register(func, hook, order: int = 0):
+def register(hook, order=0):
     def register_callback(func):
+        _callbacks.setdefault(hook, {})
         return func
 
     return register_callback
